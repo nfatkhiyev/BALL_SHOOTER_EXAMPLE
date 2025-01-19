@@ -26,13 +26,13 @@ public class Shooter {
     public void increaseSpeed() {
         double currentSpeed = motor.get();
         if (currentSpeed == 1.0) motor.set(1);
-        else currentSpeed += 0.1;
+        else motor.set(currentSpeed + 0.1);
     }
 
     public void decreaseSpeed() {
         double currentSpeed = motor.get();
         if (currentSpeed == 0.0) motor.set(0);
-        else currentSpeed -= 0.1;
+        else motor.set(currentSpeed - 0.1);
     }
 
     public void stop() {
