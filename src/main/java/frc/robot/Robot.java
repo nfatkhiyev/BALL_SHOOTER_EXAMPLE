@@ -5,13 +5,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.Joystick;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
-import com.revrobotics.spark.config.SparkMaxConfig;
-import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
-import com.revrobotics.spark.SparkBase.ResetMode;
-import com.revrobotics.spark.SparkBase.PersistMode;
+import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.systems.Shooter;
 
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
@@ -25,6 +22,7 @@ public class Robot extends TimedRobot {
 
   Joystick joystick;
   SparkMax motor;
+  Shooter shooter;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -32,17 +30,12 @@ public class Robot extends TimedRobot {
    */
   public Robot() {
     joystick = new Joystick(joystickID);
-    
-    //Create a new Spark Max configuration setting the idle mode to coast.
-    SparkMaxConfig config = new SparkMaxConfig();
-    config.
-      idleMode(IdleMode.kCoast);
 
     //Create a new motor named motor
     motor = new SparkMax(motorCanID, MotorType.kBrushless);
 
-    //Apply the configuration to the motor with safe reset parameters and persistent save
-    motor.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    shooter = new Shooter(motor);
+
   }
 
   @Override
