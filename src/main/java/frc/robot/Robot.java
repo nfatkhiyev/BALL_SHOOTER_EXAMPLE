@@ -52,7 +52,9 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    motor.set(joystick.getY());
+    if (joystick.getRawButtonPressed(1)) shooter.increaseSpeed();
+    if (joystick.getRawButtonPressed(2)) shooter.decreaseSpeed();
+    if (joystick.getRawButtonPressed(3)) shooter.stop();
   }
 
   @Override
