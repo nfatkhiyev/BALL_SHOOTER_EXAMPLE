@@ -35,8 +35,9 @@ public class Robot extends TimedRobot {
     
     //Create a new Spark Max configuration setting the idle mode to coast.
     SparkMaxConfig config = new SparkMaxConfig();
-    config.
-      idleMode(IdleMode.kCoast);
+    config
+      .idleMode(IdleMode.kCoast)
+      .inverted(false);
 
     //Create a new motor named motor
     motor = new SparkMax(motorCanID, MotorType.kBrushless);
