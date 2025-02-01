@@ -1,7 +1,7 @@
 package frc.robot.systems;
 
-import com.revrobotics.spark.SparkMax;
-import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import com.revrobotics.spark.SparkBase.ResetMode;
@@ -9,12 +9,12 @@ import com.revrobotics.spark.SparkBase.PersistMode;
 
 public class Shooter {
     
-    private SparkMax motor;
+    private SparkFlex motor;
     
-    public Shooter(SparkMax motor) {
+    public Shooter(SparkFlex motor) {
         this.motor = motor;
         
-        SparkMaxConfig config = new SparkMaxConfig();
+        SparkFlexConfig config = new SparkFlexConfig();
         config
             .idleMode(IdleMode.kCoast)
             .inverted(false);

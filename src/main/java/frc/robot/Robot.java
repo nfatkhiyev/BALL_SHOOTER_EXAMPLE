@@ -5,9 +5,9 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.systems.Shooter;
 
 /**
@@ -20,8 +20,8 @@ public class Robot extends TimedRobot {
   private static final int joystickID = 0;
   private static final int motorCanID = 9;
 
-  Joystick joystick;
-  SparkMax motor;
+  XboxController joystick;
+  SparkFlex motor;
   Shooter shooter;
 
   /**
@@ -29,10 +29,10 @@ public class Robot extends TimedRobot {
    * initialization code.
    */
   public Robot() {
-    joystick = new Joystick(joystickID);
+    joystick = new XboxController(joystickID);
 
     //Create a new motor named motor
-    motor = new SparkMax(motorCanID, MotorType.kBrushless);
+    motor = new SparkFlex(motorCanID, MotorType.kBrushless);
 
     shooter = new Shooter(motor);
 
